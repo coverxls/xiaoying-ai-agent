@@ -1,0 +1,175 @@
+{
+  "run_id": "run-20261028-050038-c40066",
+  "started_at": "2026-10-28T05:00:38.419297+00:00",
+  "finished_at": "2026-10-28T05:00:42.743965+00:00",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "max_steps": 8,
+  "input": {
+    "material_id": "M06",
+    "requested_publish_at": "2026-11-02T10:00:00+08:00",
+    "notes": "批量第 1 条：正常排期，先占 10:00。"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "action": "get_material",
+      "args": {
+        "material_id": "M06"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "material_id": "M06",
+          "title": "日常通勤妆",
+          "content_type": "video",
+          "duration_sec": 30,
+          "platform": "douyin",
+          "required_publish_at": "2026-11-02T10:00:00+08:00",
+          "hard_requirement": true,
+          "rights_status": "cleared",
+          "resolution": "1080p",
+          "description": "三分钟通勤妆教程。",
+          "tags": [
+            "美妆",
+            "通勤"
+          ],
+          "owner": "内容组A"
+        },
+        "missing_fields": []
+      },
+      "decision_basis": "第一步必须读取素材元数据，确认字段是否完整。",
+      "timestamp": "2026-10-28T05:00:39.302595+00:00"
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "args": {
+        "material_id": "M06"
+      },
+      "observation": {
+        "ok": true,
+        "material_id": "M06",
+        "blocked": false,
+        "risks": [],
+        "warnings": [],
+        "checked_at": "2026-10-28T05:00:39.987868+00:00"
+      },
+      "decision_basis": "素材字段完整，下一步按规则检查版权、敏感词、时长与分辨率。",
+      "timestamp": "2026-10-28T05:00:39.987885+00:00"
+    },
+    {
+      "step": 3,
+      "action": "query_slots",
+      "args": {
+        "date": "2026-11-02",
+        "platform": "douyin",
+        "duration_sec": 30,
+        "preferred_time": "10:00"
+      },
+      "observation": {
+        "ok": true,
+        "date": "2026-11-02",
+        "platform": "douyin",
+        "duration_sec": 30,
+        "duration_min": 1,
+        "timezone": "Asia/Shanghai",
+        "requested": {
+          "start": "10:00",
+          "end": "10:01",
+          "available": true
+        },
+        "conflicts": [],
+        "alternatives": [],
+        "nearest_alternative": "10:00"
+      },
+      "decision_basis": "规则检查通过，查询 2026-11-02 抖音 10:00 时段占用情况。",
+      "timestamp": "2026-10-28T05:00:40.961479+00:00"
+    },
+    {
+      "step": 4,
+      "action": "save_draft",
+      "args": {
+        "material_id": "M06",
+        "date": "2026-11-02",
+        "slot": "10:00",
+        "requested_time": "10:00",
+        "draft_status": "ready",
+        "risk_summary": "规则检查通过，无风险；原时段 10:00 可用。",
+        "pending_items": [],
+        "note": "批量第 1 条：正常排期，先占 10:00。"
+      },
+      "observation": {
+        "ok": true,
+        "draft_id": "D-897a51928e",
+        "duplicate": false,
+        "draft": {
+          "draft_id": "D-897a51928e",
+          "idempotency_key": "897a51928edc2420c3ae",
+          "material_id": "M06",
+          "date": "2026-11-02",
+          "slot": "10:00",
+          "requested_time": "10:00",
+          "draft_status": "ready",
+          "risk_summary": [
+            {
+              "note": "规则检查通过，无风险；原时段 10:00 可用。"
+            }
+          ],
+          "pending_items": [],
+          "note": "批量第 1 条：正常排期，先占 10:00。",
+          "created_at": "2026-10-28T05:00:41.966840+00:00",
+          "published": false
+        }
+      },
+      "decision_basis": "原时段可用且无风险，保存为 ready 草稿（仅草稿，不发布）。",
+      "timestamp": "2026-10-28T05:00:41.967855+00:00"
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "args": {
+        "status": "completed",
+        "message": "素材 M06《日常通勤妆》规则检查通过，2026-11-02 10:00 抖音时段可用，已保存草稿 D-897a51928e（draft_status=ready，published=false），未发布，等待后续确认。",
+        "pending_items": []
+      },
+      "observation": {
+        "ok": true
+      },
+      "decision_basis": "草稿保存成功且原时段可用，流程完成。",
+      "timestamp": "2026-10-28T05:00:42.743898+00:00"
+    }
+  ],
+  "final": {
+    "run_id": "run-20261028-050038-c40066",
+    "status": "completed",
+    "material_id": "M06",
+    "audit": {
+      "status": "passed",
+      "risks": [],
+      "warnings": [],
+      "missing_fields": []
+    },
+    "suggested_slot": {
+      "date": "2026-11-02",
+      "start": "10:00",
+      "end": "10:01",
+      "platform": "douyin",
+      "requested_time": "10:00",
+      "changed_from_request": false
+    },
+    "pending_items": [],
+    "draft": {
+      "ok": true,
+      "draft_id": "D-897a51928e",
+      "duplicate": false,
+      "draft_status": "ready",
+      "saved_at": "2026-10-28T05:00:41.966840+00:00",
+      "published": false
+    },
+    "steps": 5,
+    "trace_path": "examples\\08_batch_normal\\traces\\batch-20261028-050038-87e611_01_M06.json",
+    "message": "素材 M06《日常通勤妆》规则检查通过，2026-11-02 10:00 抖音时段可用，已保存草稿 D-897a51928e（draft_status=ready，published=false），未发布，等待后续确认。",
+    "published": false
+  }
+}

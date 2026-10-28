@@ -1,0 +1,24 @@
+{
+  "run_id": "run-20261028-041238-b29300",
+  "status": "needs_input",
+  "material_id": "M02",
+  "audit": {
+    "status": "not_checked",
+    "risks": [],
+    "warnings": [],
+    "missing_fields": [
+      "duration_sec",
+      "rights_status"
+    ]
+  },
+  "suggested_slot": null,
+  "pending_items": [
+    "请补充视频时长（duration_sec，单位秒）",
+    "请补充版权状态（rights_status，如已获授权/原创/待确认）"
+  ],
+  "draft": null,
+  "steps": 2,
+  "trace_path": "runtime\\real_missing_trace.json",
+  "message": "素材 M02《秋季通勤穿搭》信息不完整，缺少视频时长与版权状态，无法进行规则校验和排期，暂未保存草稿。",
+  "published": false
+}

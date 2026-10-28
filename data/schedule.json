@@ -1,0 +1,32 @@
+{
+  "timezone": "Asia/Shanghai",
+  "slot_minutes": 30,
+  "day_start": "09:00",
+  "day_end": "22:00",
+  "occupied": [
+    {
+      "date": "2026-11-01",
+      "platform": "douyin",
+      "start": "18:00",
+      "end": "19:00",
+      "material_id": "M00",
+      "title": "已排素材"
+    },
+    {
+      "date": "2026-11-01",
+      "platform": "douyin",
+      "start": "20:00",
+      "end": "20:30",
+      "material_id": "M99",
+      "title": "已排素材"
+    },
+    {
+      "date": "2026-11-07",
+      "platform": "douyin",
+      "start": "21:00",
+      "end": "22:00",
+      "material_id": "M98",
+      "title": "夜间直播"
+    }
+  ]
+}

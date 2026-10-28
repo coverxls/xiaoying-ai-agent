@@ -1,0 +1,32 @@
+{
+  "run_id": "run-20261028-041248-ea9f94",
+  "status": "save_failed",
+  "material_id": "M06",
+  "audit": {
+    "status": "passed",
+    "risks": [],
+    "warnings": [],
+    "missing_fields": []
+  },
+  "suggested_slot": {
+    "date": "2026-11-02",
+    "start": "10:00",
+    "end": "10:01",
+    "platform": "douyin",
+    "requested_time": "10:00",
+    "changed_from_request": false
+  },
+  "pending_items": [
+    "草稿未保存，需在存储恢复后重新保存草稿"
+  ],
+  "draft": {
+    "ok": false,
+    "error": "storage_unavailable",
+    "message": "草稿存储不可用（注入故障）",
+    "published": false
+  },
+  "steps": 6,
+  "trace_path": "runtime\\real_save_failure_trace.json",
+  "message": "素材 M06《日常通勤妆》规则检查通过，2026-11-02 10:00 时段可用，但草稿存储不可用（storage_unavailable），重试一次仍失败，草稿未保存，也未发布。请稍后重试或联系存储维护。",
+  "published": false
+}

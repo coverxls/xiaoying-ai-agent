@@ -1,0 +1,103 @@
+{
+  "batch_id": "batch-20261028-050052-e0a855",
+  "status": "partial",
+  "total": 3,
+  "counts": {
+    "completed": 1,
+    "pending_confirmation": 0,
+    "needs_input": 1,
+    "blocked": 1,
+    "save_failed": 0,
+    "max_steps": 0,
+    "invalid_model_output": 0,
+    "skipped_duplicate": 0
+  },
+  "results": [
+    {
+      "run_id": "run-20261028-050052-10fe79",
+      "status": "needs_input",
+      "material_id": "M02",
+      "audit": {
+        "status": "not_checked",
+        "risks": [],
+        "warnings": [],
+        "missing_fields": [
+          "duration_sec",
+          "rights_status"
+        ]
+      },
+      "suggested_slot": null,
+      "pending_items": [
+        "补充 duration_sec（视频时长，秒）",
+        "补充 rights_status（版权状态）"
+      ],
+      "draft": null,
+      "steps": 2,
+      "trace_path": "examples\\09_batch_mixed\\traces\\batch-20261028-050052-e0a855_01_M02.json",
+      "message": "素材 M02《秋季通勤穿搭》信息不完整，暂未保存草稿。请补充视频时长（duration_sec）和版权状态（rights_status）后再提交审核。",
+      "published": false
+    },
+    {
+      "run_id": "run-20261028-050054-fea734",
+      "status": "blocked",
+      "material_id": "M03",
+      "audit": {
+        "status": "blocked",
+        "risks": [
+          {
+            "rule_id": "R001",
+            "severity": "blocking",
+            "field": "rights_status",
+            "reason": "版权状态必须为 cleared：当前值 'pending'，要求 'cleared'",
+            "evidence": "rights_status=pending"
+          }
+        ],
+        "warnings": [],
+        "missing_fields": []
+      },
+      "suggested_slot": null,
+      "pending_items": [
+        "版权状态需由 pending 变更为 cleared（规则 R001）"
+      ],
+      "draft": null,
+      "steps": 3,
+      "trace_path": "examples\\09_batch_mixed\\traces\\batch-20261028-050052-e0a855_02_M03.json",
+      "message": "素材 M03《联名款开箱》被规则阻断：版权状态为 pending，要求为 cleared（规则 R001）。未查询时段、未保存草稿，也未发布。请先完成版权确认后重新提交。",
+      "published": false
+    },
+    {
+      "run_id": "run-20261028-050056-683bec",
+      "status": "completed",
+      "material_id": "M06",
+      "audit": {
+        "status": "passed",
+        "risks": [],
+        "warnings": [],
+        "missing_fields": []
+      },
+      "suggested_slot": {
+        "date": "2026-11-02",
+        "start": "10:00",
+        "end": "10:01",
+        "platform": "douyin",
+        "requested_time": "10:00",
+        "changed_from_request": false
+      },
+      "pending_items": [],
+      "draft": {
+        "ok": true,
+        "draft_id": "D-897a51928e",
+        "duplicate": false,
+        "draft_status": "ready",
+        "saved_at": "2026-10-28T05:00:59.642724+00:00",
+        "published": false
+      },
+      "steps": 5,
+      "trace_path": "examples\\09_batch_mixed\\traces\\batch-20261028-050052-e0a855_03_M06.json",
+      "message": "素材 M06《日常通勤妆》已通过规则检查，原定 2026-11-02 10:00（抖音，30 秒）时段可用，草稿已保存（draft_id=D-897a51928e，draft_status=ready，published=false）。请确认后再安排发布。",
+      "published": false
+    }
+  ],
+  "trace_path": "examples\\09_batch_mixed\\batch_trace.json",
+  "message": "批量处理 3 条：completed 1，pending_confirmation 0，needs_input 1，blocked 1，save_failed 0，skipped_duplicate 0。"
+}

@@ -1,0 +1,7 @@
+Command: python -m pytest
+Date: 2026-10-28
+Python: 3.13.16
+Working directory: project root
+
+.................................                                        [100%]
+33 passed in 7.50s

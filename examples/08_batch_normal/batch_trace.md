@@ -1,0 +1,101 @@
+# Batch Trace: batch-20261028-050038-87e611
+
+- Status: `pending_confirmation`
+- Total: 2
+- Counts: `{"completed": 1, "pending_confirmation": 1, "needs_input": 0, "blocked": 0, "save_failed": 0, "max_steps": 0, "invalid_model_output": 0, "skipped_duplicate": 0}`
+
+| # | Material | Status | Steps | Draft | Message |
+|---|---|---|---|---|---|
+| 1 | `M06` | `completed` | 5 | D-897a51928e | 素材 M06《日常通勤妆》规则检查通过，2026-11-02 10:00 抖音时段可用，已保存草稿 D-897a51928e（draft_status=ready，published=false），未发布，等待后续确认。 |
+| 2 | `M08` | `pending_confirmation` | 5 | D-f226446a53 | 素材 M08 已通过规则检查，但原定 2026-11-02 10:00 与 M06 草稿占位冲突，已保存待确认草稿 D-f226446a53，建议时段为 10:30（未发布）。 |
+
+## Items
+
+```json
+[
+  {
+    "index": 1,
+    "input": {
+      "material_id": "M06",
+      "requested_publish_at": "2026-11-02T10:00:00+08:00",
+      "notes": "批量第 1 条：正常排期，先占 10:00。"
+    },
+    "result": {
+      "run_id": "run-20261028-050038-c40066",
+      "status": "completed",
+      "material_id": "M06",
+      "audit": {
+        "status": "passed",
+        "risks": [],
+        "warnings": [],
+        "missing_fields": []
+      },
+      "suggested_slot": {
+        "date": "2026-11-02",
+        "start": "10:00",
+        "end": "10:01",
+        "platform": "douyin",
+        "requested_time": "10:00",
+        "changed_from_request": false
+      },
+      "pending_items": [],
+      "draft": {
+        "ok": true,
+        "draft_id": "D-897a51928e",
+        "duplicate": false,
+        "draft_status": "ready",
+        "saved_at": "2026-10-28T05:00:41.966840+00:00",
+        "published": false
+      },
+      "steps": 5,
+      "trace_path": "examples\\08_batch_normal\\traces\\batch-20261028-050038-87e611_01_M06.json",
+      "message": "素材 M06《日常通勤妆》规则检查通过，2026-11-02 10:00 抖音时段可用，已保存草稿 D-897a51928e（draft_status=ready，published=false），未发布，等待后续确认。",
+      "published": false
+    },
+    "trace_path": "examples\\08_batch_normal\\traces\\batch-20261028-050038-87e611_01_M06.json"
+  },
+  {
+    "index": 2,
+    "input": {
+      "material_id": "M08",
+      "requested_publish_at": "2026-11-02T10:00:00+08:00",
+      "notes": "批量第 2 条：与第 1 条争用 10:00，应自动后移到 10:30 并标记待确认。"
+    },
+    "result": {
+      "run_id": "run-20261028-050042-4d5110",
+      "status": "pending_confirmation",
+      "material_id": "M08",
+      "audit": {
+        "status": "passed",
+        "risks": [],
+        "warnings": [],
+        "missing_fields": []
+      },
+      "suggested_slot": {
+        "date": "2026-11-02",
+        "start": "10:30",
+        "end": "10:31",
+        "platform": "douyin",
+        "requested_time": "10:00",
+        "changed_from_request": true
+      },
+      "pending_items": [
+        "是否接受 10:30 替代 10:00"
+      ],
+      "draft": {
+        "ok": true,
+        "draft_id": "D-f226446a53",
+        "duplicate": false,
+        "draft_status": "pending_confirmation",
+        "saved_at": "2026-10-28T05:00:45.677339+00:00",
+        "published": false
+      },
+      "steps": 5,
+      "trace_path": "examples\\08_batch_normal\\traces\\batch-20261028-050038-87e611_02_M08.json",
+      "message": "素材 M08 已通过规则检查，但原定 2026-11-02 10:00 与 M06 草稿占位冲突，已保存待确认草稿 D-f226446a53，建议时段为 10:30（未发布）。",
+      "published": false
+    },
+    "trace_path": "examples\\08_batch_normal\\traces\\batch-20261028-050038-87e611_02_M08.json"
+  }
+]
+```

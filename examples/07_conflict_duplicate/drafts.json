@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "drafts": [
+    {
+      "draft_id": "D-58451013b9",
+      "idempotency_key": "58451013b91d71b560f3",
+      "material_id": "M01",
+      "date": "2026-11-01",
+      "slot": "19:00",
+      "requested_time": "18:00",
+      "draft_status": "pending_confirmation",
+      "risk_summary": [
+        {
+          "note": "原定 18:00 时段被 M00（已排素材）占用至 19:00，最近可用替代时段为 19:00。"
+        }
+      ],
+      "pending_items": [
+        "是否接受 19:00 替代 18:00"
+      ],
+      "note": "用户硬性要求 18:00，替代时段需用户确认。",
+      "created_at": "2026-10-28T04:12:33.243527+00:00",
+      "published": false
+    }
+  ]
+}

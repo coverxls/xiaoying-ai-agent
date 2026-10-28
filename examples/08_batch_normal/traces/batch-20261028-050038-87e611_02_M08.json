@@ -1,0 +1,215 @@
+{
+  "run_id": "run-20261028-050042-4d5110",
+  "started_at": "2026-10-28T05:00:42.745510+00:00",
+  "finished_at": "2026-10-28T05:00:46.578002+00:00",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "max_steps": 8,
+  "input": {
+    "material_id": "M08",
+    "requested_publish_at": "2026-11-02T10:00:00+08:00",
+    "notes": "批量第 2 条：与第 1 条争用 10:00，应自动后移到 10:30 并标记待确认。"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "action": "get_material",
+      "args": {
+        "material_id": "M08"
+      },
+      "observation": {
+        "ok": true,
+        "material": {
+          "material_id": "M08",
+          "title": "批量排期测试B",
+          "content_type": "video",
+          "duration_sec": 30,
+          "platform": "douyin",
+          "required_publish_at": "2026-11-02T10:00:00+08:00",
+          "hard_requirement": true,
+          "rights_status": "cleared",
+          "resolution": "1080p",
+          "description": "用于验证同一批次内两个素材争用 10:00 时，第二个素材自动后移。",
+          "tags": [
+            "批量",
+            "测试"
+          ],
+          "owner": "内容组B"
+        },
+        "missing_fields": []
+      },
+      "decision_basis": "第一步必须读取素材元数据，确认字段是否完整。",
+      "timestamp": "2026-10-28T05:00:43.280176+00:00"
+    },
+    {
+      "step": 2,
+      "action": "check_rules",
+      "args": {
+        "material_id": "M08"
+      },
+      "observation": {
+        "ok": true,
+        "material_id": "M08",
+        "blocked": false,
+        "risks": [],
+        "warnings": [],
+        "checked_at": "2026-10-28T05:00:43.934707+00:00"
+      },
+      "decision_basis": "素材字段完整，下一步按规则检查版权、敏感词、平台时长与分辨率。",
+      "timestamp": "2026-10-28T05:00:43.934723+00:00"
+    },
+    {
+      "step": 3,
+      "action": "query_slots",
+      "args": {
+        "date": "2026-11-02",
+        "platform": "douyin",
+        "duration_sec": 30,
+        "preferred_time": "10:00"
+      },
+      "observation": {
+        "ok": true,
+        "date": "2026-11-02",
+        "platform": "douyin",
+        "duration_sec": 30,
+        "duration_min": 1,
+        "timezone": "Asia/Shanghai",
+        "requested": {
+          "start": "10:00",
+          "end": "10:01",
+          "available": false
+        },
+        "conflicts": [
+          {
+            "start": "10:00",
+            "end": "10:01",
+            "material_id": "M06",
+            "title": "本批次草稿占位"
+          }
+        ],
+        "alternatives": [
+          {
+            "start": "10:30",
+            "end": "10:31"
+          },
+          {
+            "start": "11:00",
+            "end": "11:01"
+          },
+          {
+            "start": "11:30",
+            "end": "11:31"
+          },
+          {
+            "start": "12:00",
+            "end": "12:01"
+          },
+          {
+            "start": "12:30",
+            "end": "12:31"
+          },
+          {
+            "start": "13:00",
+            "end": "13:01"
+          }
+        ],
+        "nearest_alternative": "10:30"
+      },
+      "decision_basis": "规则检查通过，查询 10:00 时段占用情况以确定可用时段。",
+      "timestamp": "2026-10-28T05:00:44.632985+00:00"
+    },
+    {
+      "step": 4,
+      "action": "save_draft",
+      "args": {
+        "material_id": "M08",
+        "date": "2026-11-02",
+        "slot": "10:30",
+        "requested_time": "10:00",
+        "draft_status": "pending_confirmation",
+        "risk_summary": "原定 10:00 与 M06 草稿占位冲突，建议后移至最近的可用时段 10:30；素材硬性要求为 10:00，需用户确认。",
+        "pending_items": [
+          "是否接受 10:30 替代 10:00"
+        ],
+        "note": "批量第 2 条，10:00 争用后移"
+      },
+      "observation": {
+        "ok": true,
+        "draft_id": "D-f226446a53",
+        "duplicate": false,
+        "draft": {
+          "draft_id": "D-f226446a53",
+          "idempotency_key": "f226446a53b8ae61cd61",
+          "material_id": "M08",
+          "date": "2026-11-02",
+          "slot": "10:30",
+          "requested_time": "10:00",
+          "draft_status": "pending_confirmation",
+          "risk_summary": [
+            {
+              "note": "原定 10:00 与 M06 草稿占位冲突，建议后移至最近的可用时段 10:30；素材硬性要求为 10:00，需用户确认。"
+            }
+          ],
+          "pending_items": [
+            "是否接受 10:30 替代 10:00"
+          ],
+          "note": "批量第 2 条，10:00 争用后移",
+          "created_at": "2026-10-28T05:00:45.677339+00:00",
+          "published": false
+        }
+      },
+      "decision_basis": "原时段不可用，按规则选最近可用时段 10:30 并保存为待确认草稿。",
+      "timestamp": "2026-10-28T05:00:45.678462+00:00"
+    },
+    {
+      "step": 5,
+      "action": "finish",
+      "args": {
+        "status": "pending_confirmation",
+        "message": "素材 M08 已通过规则检查，但原定 2026-11-02 10:00 与 M06 草稿占位冲突，已保存待确认草稿 D-f226446a53，建议时段为 10:30（未发布）。",
+        "pending_items": [
+          "是否接受 10:30 替代 10:00"
+        ]
+      },
+      "observation": {
+        "ok": true
+      },
+      "decision_basis": "草稿已保存为待确认，需用户确认替代时段后结束。",
+      "timestamp": "2026-10-28T05:00:46.577959+00:00"
+    }
+  ],
+  "final": {
+    "run_id": "run-20261028-050042-4d5110",
+    "status": "pending_confirmation",
+    "material_id": "M08",
+    "audit": {
+      "status": "passed",
+      "risks": [],
+      "warnings": [],
+      "missing_fields": []
+    },
+    "suggested_slot": {
+      "date": "2026-11-02",
+      "start": "10:30",
+      "end": "10:31",
+      "platform": "douyin",
+      "requested_time": "10:00",
+      "changed_from_request": true
+    },
+    "pending_items": [
+      "是否接受 10:30 替代 10:00"
+    ],
+    "draft": {
+      "ok": true,
+      "draft_id": "D-f226446a53",
+      "duplicate": false,
+      "draft_status": "pending_confirmation",
+      "saved_at": "2026-10-28T05:00:45.677339+00:00",
+      "published": false
+    },
+    "steps": 5,
+    "trace_path": "examples\\08_batch_normal\\traces\\batch-20261028-050038-87e611_02_M08.json",
+    "message": "素材 M08 已通过规则检查，但原定 2026-11-02 10:00 与 M06 草稿占位冲突，已保存待确认草稿 D-f226446a53，建议时段为 10:30（未发布）。",
+    "published": false
+  }
+}

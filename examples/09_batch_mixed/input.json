@@ -1,0 +1,19 @@
+{
+  "materials": [
+    {
+      "material_id": "M02",
+      "requested_publish_at": "2026-11-03T12:00:00+08:00",
+      "notes": "信息缺失，应返回 needs_input，不阻塞后续素材。"
+    },
+    {
+      "material_id": "M03",
+      "requested_publish_at": "2026-11-01T20:00:00+08:00",
+      "notes": "版权 pending，应 blocked，不阻塞后续素材。"
+    },
+    {
+      "material_id": "M06",
+      "requested_publish_at": "2026-11-02T10:00:00+08:00",
+      "notes": "正常素材，应在同一批次中继续完成。"
+    }
+  ]
+}

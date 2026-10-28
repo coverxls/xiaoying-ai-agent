@@ -1,0 +1,32 @@
+{
+  "run_id": "run-20261028-041314-28f214",
+  "status": "completed",
+  "material_id": "M06",
+  "audit": {
+    "status": "passed",
+    "risks": [],
+    "warnings": [],
+    "missing_fields": []
+  },
+  "suggested_slot": {
+    "date": "2026-11-02",
+    "start": "10:00",
+    "end": "10:01",
+    "platform": "douyin",
+    "requested_time": "10:00",
+    "changed_from_request": false
+  },
+  "pending_items": [],
+  "draft": {
+    "ok": true,
+    "draft_id": "D-897a51928e",
+    "duplicate": false,
+    "draft_status": "ready",
+    "saved_at": "2026-10-28T04:13:17.439583+00:00",
+    "published": false
+  },
+  "steps": 5,
+  "trace_path": "runtime\\real_normal_trace.json",
+  "message": "素材 M06《日常通勤妆》已通过规则检查，2026-11-02 10:00 抖音时段可用，草稿已保存（draft_id=D-897a51928e，published=false），未发布，等待人工确认后发布。",
+  "published": false
+}

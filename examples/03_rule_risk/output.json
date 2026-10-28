@@ -1,0 +1,28 @@
+{
+  "run_id": "run-20261028-041241-e83245",
+  "status": "blocked",
+  "material_id": "M03",
+  "audit": {
+    "status": "blocked",
+    "risks": [
+      {
+        "rule_id": "R001",
+        "severity": "blocking",
+        "field": "rights_status",
+        "reason": "版权状态必须为 cleared：当前值 'pending'，要求 'cleared'",
+        "evidence": "rights_status=pending"
+      }
+    ],
+    "warnings": [],
+    "missing_fields": []
+  },
+  "suggested_slot": null,
+  "pending_items": [
+    "版权状态需由 pending 变更为 cleared（规则 R001）"
+  ],
+  "draft": null,
+  "steps": 3,
+  "trace_path": "runtime\\real_risk_trace.json",
+  "message": "素材 M03《联名款开箱》被规则阻断，未保存草稿：版权状态为 pending，必须为 cleared 才能排期。请先完成版权确认后重新提交。",
+  "published": false
+}

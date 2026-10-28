@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "rule_id": "R001",
+      "name": "版权状态必须为 cleared",
+      "field": "rights_status",
+      "type": "equals",
+      "value": "cleared",
+      "severity": "blocking",
+      "message": "版权状态不是 cleared，不能进入排期"
+    },
+    {
+      "rule_id": "R002",
+      "name": "敏感词与绝对化用语",
+      "field": "title,description,tags",
+      "type": "banned_terms",
+      "terms": ["最强", "100%有效", "绝对", "第一"],
+      "severity": "blocking",
+      "message": "发现违禁或绝对化用语"
+    },
+    {
+      "rule_id": "R003",
+      "name": "平台时长上限",
+      "field": "duration_sec",
+      "type": "max_by_platform",
+      "limits": {
+        "douyin": 60,
+        "xiaohongshu": 300,
+        "bilibili": 600
+      },
+      "severity": "blocking",
+      "message": "时长超过平台上限"
+    },
+    {
+      "rule_id": "R004",
+      "name": "视频分辨率建议",
+      "field": "resolution",
+      "type": "min_resolution",
+      "min": "1080p",
+      "severity": "warning",
+      "message": "分辨率低于 1080p，建议确认清晰度"
+    },
+    {
+      "rule_id": "R005",
+      "name": "必填字段",
+      "fields": ["title", "content_type", "duration_sec", "platform", "rights_status"],
+      "severity": "blocking",
+      "message": "素材信息缺失"
+    }
+  ]
+}

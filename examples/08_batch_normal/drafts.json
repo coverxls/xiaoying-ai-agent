@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "drafts": [
+    {
+      "draft_id": "D-897a51928e",
+      "idempotency_key": "897a51928edc2420c3ae",
+      "material_id": "M06",
+      "date": "2026-11-02",
+      "slot": "10:00",
+      "requested_time": "10:00",
+      "draft_status": "ready",
+      "risk_summary": [
+        {
+          "note": "规则检查通过，无风险；原时段 10:00 可用。"
+        }
+      ],
+      "pending_items": [],
+      "note": "批量第 1 条：正常排期，先占 10:00。",
+      "created_at": "2026-10-28T05:00:41.966840+00:00",
+      "published": false
+    },
+    {
+      "draft_id": "D-f226446a53",
+      "idempotency_key": "f226446a53b8ae61cd61",
+      "material_id": "M08",
+      "date": "2026-11-02",
+      "slot": "10:30",
+      "requested_time": "10:00",
+      "draft_status": "pending_confirmation",
+      "risk_summary": [
+        {
+          "note": "原定 10:00 与 M06 草稿占位冲突，建议后移至最近的可用时段 10:30；素材硬性要求为 10:00，需用户确认。"
+        }
+      ],
+      "pending_items": [
+        "是否接受 10:30 替代 10:00"
+      ],
+      "note": "批量第 2 条，10:00 争用后移",
+      "created_at": "2026-10-28T05:00:45.677339+00:00",
+      "published": false
+    }
+  ]
+}

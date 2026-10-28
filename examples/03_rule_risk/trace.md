@@ -1,0 +1,46 @@
+# Trace: run-20261028-041241-e83245
+
+- Provider: `deepseek`
+- Model: `deepseek-flash`
+- Status: `blocked`
+- Max steps: 8
+- Input: `{"material_id": "M03", "requested_publish_at": "2026-11-01T20:00:00+08:00", "notes": "规则风险：版权状态为 pending，应阻断排期。"}`
+
+| # | Action | Args (summary) | Observation (summary) | Decision basis |
+|---|---|---|---|---|
+| 1 | `get_material` | {"material_id": "M03"} | {"ok": true, "material": {"material_id": "M03", "title": "联名款开箱", "content_type": "video", "duration_sec": 45, "platform": "douyin", "required_publish_at": "2026-11-01T20:00:00+08:00", "hard_requirement": true, "rights_status": "pending", "resolution": "1080p", "description": "联名款礼盒开箱与细节展示。", "tags": ["联名", "开箱"], "ow… | 第一步必须读取素材元数据，确认字段是否完整。 |
+| 2 | `check_rules` | {"material_id": "M03"} | {"ok": true, "material_id": "M03", "blocked": true, "risks": [{"rule_id": "R001", "severity": "blocking", "field": "rights_status", "reason": "版权状态必须为 cleared：当前值 'pending'，要求 'cleared'", "evidence": "rights_status=pending"}], "warnings": [], "checked_at": "2026-10-28T04:12:43.249634+00:00"} | 素材字段完整，下一步按规则检查版权、敏感词、时长与分辨率。 |
+| 3 | `finish` | {"status": "blocked", "message": "素材 M03《联名款开箱》被规则阻断，未保存草稿：版权状态为 pending，必须为 cleared 才能排期。请先完成版权确认后重新提交。", "pending_items": ["版权状态需由 pending 变更为 cleared（规则 R001）"]} | {"ok": true} | check_rules 返回 blocked=true，按规则直接结束，不查时段、不保存草稿。 |
+
+## Final
+
+```json
+{
+  "run_id": "run-20261028-041241-e83245",
+  "status": "blocked",
+  "material_id": "M03",
+  "audit": {
+    "status": "blocked",
+    "risks": [
+      {
+        "rule_id": "R001",
+        "severity": "blocking",
+        "field": "rights_status",
+        "reason": "版权状态必须为 cleared：当前值 'pending'，要求 'cleared'",
+        "evidence": "rights_status=pending"
+      }
+    ],
+    "warnings": [],
+    "missing_fields": []
+  },
+  "suggested_slot": null,
+  "pending_items": [
+    "版权状态需由 pending 变更为 cleared（规则 R001）"
+  ],
+  "draft": null,
+  "steps": 3,
+  "trace_path": "examples/03_rule_risk/trace.json",
+  "message": "素材 M03《联名款开箱》被规则阻断，未保存草稿：版权状态为 pending，必须为 cleared 才能排期。请先完成版权确认后重新提交。",
+  "published": false
+}
+```
